@@ -26,6 +26,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BlogAddComponent } from './components/blog-add/blog-add.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { BlogEffects } from './shared/store/Blog/blog.effects';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatMenuModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([BlogEffects]),
     HttpClientModule,
     // StoreModule.forRoot({ todos: todoReducer }),
     // StoreDevtoolsModule.instrument({

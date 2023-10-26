@@ -1,12 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
 import { initBlogState } from './blog.state';
-import { addblog, deleteblog, loadblog, updateblog } from './blog.action';
+import {
+  addblog,
+  deleteblog,
+  loadBlog,
+  loadBlogSucess,
+  updateblog,
+} from './blog.action';
 
 const _blogReducer = createReducer(
   initBlogState,
-  on(loadblog, (state) => {
+  on(loadBlog, (state) => {
     return {
       ...state,
+    };
+  }),
+  on(loadBlogSucess, (state, action) => {
+    return {
+      ...state,
+      blogList: [...action.blogInput],
     };
   }),
   on(addblog, (state, action) => {
@@ -35,6 +47,11 @@ const _blogReducer = createReducer(
     return {
       ...state,
       blogList: [...newBList],
+    };
+  }),
+  on(loadBlog, (state, action) => {
+    return {
+      ...state,
     };
   })
 );
