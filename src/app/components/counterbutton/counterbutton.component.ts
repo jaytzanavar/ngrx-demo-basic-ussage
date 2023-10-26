@@ -4,7 +4,7 @@ import {
   decrement,
   increment,
   reset,
-} from 'src/app/shared/store/counter.actions';
+} from 'src/app/shared/store/Counter/counter.actions';
 
 @Component({
   selector: 'app-counterbutton',

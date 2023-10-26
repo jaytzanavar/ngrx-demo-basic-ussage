@@ -1,0 +1,18 @@
+<h1>BLOGS</h1>
+
+<mat-card *ngFor="let item of blogList">
+  <mat-card-header>{{ item.title }}</mat-card-header>
+  <div>
+    <button (click)="update(item)" mat-raised-button color="primary">
+      Edit
+    </button>
+    <button (click)="delete(item)" mat-raised-button color="danger">
+      Delete
+    </button>
+  </div>
+  <mat-card-content>
+    <p>{{ item.description }}</p>
+  </mat-card-content>
+</mat-card>
+
+<button (click)="AddBlog()" mat-raised-button color="primary">Add blog</button>

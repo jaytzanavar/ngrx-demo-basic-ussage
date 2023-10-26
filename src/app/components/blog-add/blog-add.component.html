@@ -1,0 +1,27 @@
+<form [formGroup]="bf" (ngSubmit)="SaveBlog()">
+  <mat-card>
+    <mat-card-header>
+      <h1>Add blogs</h1>
+    </mat-card-header>
+    <mat-card-content [style]="{ display: 'flex', 'flex-direction': 'column' }">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input type="text" matInput formControlName="title" />
+        <mat-error *ngIf="bf.controls.title.invalid"
+          >Title must start Uppercase</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button type="submit" mat-raised-button color="primary">Save</button>
+      <button (click)="Cancel()" mat-raised-button color="primary">
+        Cancel
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
