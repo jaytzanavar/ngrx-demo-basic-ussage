@@ -24,6 +24,8 @@ import { AppGlobalState } from './shared/store/Global/App.state';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BlogAddComponent } from './components/blog-add/blog-add.component';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { BlogAddComponent } from './components/blog-add/blog-add.component';
     MatToolbarModule,
     MatMenuModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
+    HttpClientModule,
     // StoreModule.forRoot({ todos: todoReducer }),
     // StoreDevtoolsModule.instrument({
     //   maxAge: 25,
