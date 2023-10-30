@@ -27,6 +27,7 @@ import { BlogAddComponent } from './components/blog-add/blog-add.component';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogEffects } from './shared/store/Blog/blog.effects';
+import { PostEffects } from './shared/store/Post/Post.effect';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { BlogEffects } from './shared/store/Blog/blog.effects';
     MatToolbarModule,
     MatMenuModule,
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([BlogEffects]),
+    EffectsModule.forRoot([BlogEffects, PostEffects]),
     HttpClientModule,
     // StoreModule.forRoot({ todos: todoReducer }),
     // StoreDevtoolsModule.instrument({
