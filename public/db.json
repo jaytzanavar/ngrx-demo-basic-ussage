@@ -15,5 +15,15 @@
       "title": "Vue",
       "description": "Bulba"
     }
+  ],
+  "Posts": [
+    {
+      "id": 0,
+      "title": "I had i first post"
+    },
+    {
+      "id": 1,
+      "title": "Then i posted something else"
+    }
   ]
 }

@@ -7,6 +7,8 @@ import { getBlog } from 'src/app/shared/store/Blog/blog.selectors';
 import { AppStateModel } from 'src/app/shared/store/Global/AppState.Model';
 import { BlogAddComponent } from '../blog-add/blog-add.component';
 import { deleteblog, loadBlog } from 'src/app/shared/store/Blog/blog.action';
+import { MasterServiceService } from 'src/app/shared/master-service.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-blog',
@@ -18,13 +20,18 @@ export class BlogComponent {
   /**
    *
    */
-  constructor(private store: Store<AppStateModel>, private dialog: MatDialog) {}
+  constructor(
+    private store: Store<AppStateModel>,
+    private dialog: MatDialog,
+    private srv: MasterServiceService
+  ) {}
 
   ngOnInit(): void {
     this.store.dispatch(loadBlog());
     this.store.select(getBlog).subscribe((blog: any) => {
       this.blogList = blog;
     });
+    this.srv.getAllPosts().subscribe((res) => console.log(res));
   }
 
   AddBlog(): void {
